@@ -1,8 +1,8 @@
-function setupSelectBox(props) {
-   var resultOnLastSelection = props.resultOnLastSelection == undefined ? true : props.resultOnLastSelection;
-   console.log("resultOnLastSelection", resultOnLastSelection)
-   var holders = $(props.holder);
+function setupSelectBox(propsParent) {
+   var holders = $(propsParent.holder);
    holders.each(function (index) {
+      var props = JSON.parse(JSON.stringify(propsParent));
+      var resultOnLastSelection = props.resultOnLastSelection == undefined ? true : props.resultOnLastSelection;
       var holderDiv = $(this);
       var bikeModelDivArr = holderDiv.find(".eachDataDiv");
       function getFilteredData(props) {
@@ -48,7 +48,6 @@ function setupSelectBox(props) {
          })
          var options = selectBox.find("option");
          var sortArray = filterObj[curDataType + 'SortArr'];
-         console.log(filterObj);
          function addOption() {
             var ele = sortArray[i];
             var optionTag = $('<option value="' + ele + '">' + ele + '</option>');
@@ -70,7 +69,6 @@ function setupSelectBox(props) {
          var obj = getFilteredData({
             filterDataType: filterDataType
          })
-         console.log(filterDataType)
          obj.divList.addClass("show");
       }
       //---------------------------------------------
@@ -81,7 +79,6 @@ function setupSelectBox(props) {
          var data = selectBox.data();
          var dataType = data.type;
          filterDataType[dataType] = "";
-         console.log(dataType);
          data.clearFilterData = function () {
             filterDataType[dataType] = "";
          }
@@ -94,6 +91,7 @@ function setupSelectBox(props) {
                }),
                onSelect: function (props) {
                   filterDataType[dataType] = props.selectedValue;
+
                   bikeModelDivArr.removeClass("show");
                   for (var i = (index + 1); i < allSelectBox.length; i++) {
                      var tempSelect = $(allSelectBox[i]);
@@ -122,7 +120,6 @@ function setupSelectBox(props) {
                for (var key in props.default) {
                   var tempVal = props.default[key];
                   if (dataType == key) {
-                     console.log(key, tempVal);
                      var option = selectBox.find('option[value="' + tempVal + '"]');
                      if (option.length > 0) {
                         selectBox.find("option").attr("selected", false);

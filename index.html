@@ -85,12 +85,68 @@
     </div> 
   </div>
 
+
+  <div class="selectBoxHolder">
+
+    <div>
+      <select name="category" data-type='category'>
+        <option value="">Select category</option>
+      </select>
+      <select name="model" data-type="model">
+        <option value="">Select model</option>
+      </select>
+      <select name="year" data-type="year">
+        <option value="">Select year</option>
+      </select>
+      <select name="month" data-type="month">
+        <option value="">Select month</option>
+      </select>
+    </div>
+
+
+    <div class="dataListHolder">
+      <!-- ---------- data start ------------------------------- -->
+      <div class="eachDataDiv" data-category="Scooter" data-model="Destini 125" data-year="2020" data-month="November">
+        <h2> <span class="bikeName"> Bike Name </span>
+        </h2>
+        <a href="#" class="download_btn manualDownloadBtn" target="_blank" download="">Download Now</a>
+        <img src="images/dummybike.jpg">
+      </div>
+
+
+      <div class="eachDataDiv" data-default-bike="true" data-category="Scooter" data-model="Destini 125"
+        data-year="2020" data-month="December">
+        <h2> <span class="bikeName"> Bike Name </span>
+        </h2>
+        <a href="#" class="download_btn manualDownloadBtn" target="_blank" download="">Download Now</a>
+        <img src="images/dummybike.jpg">
+      </div>
+
+
+      <div class="eachDataDiv" data-category="Motorcycle" data-model="Achiever" data-year="2001" data-month="January">
+        <h2> <span class="bikeName"> Bike Name </span>
+        </h2>
+        <a href="#" class="download_btn manualDownloadBtn" target="_blank" download="">Download Now</a>
+        <img src="images/dummybike.jpg">
+      </div>
+
+
+      <div class="eachDataDiv" data-category="Motorcycle" data-model="Achiever" data-year="2011" data-month="February">
+        <h2> <span class="bikeName"> Motorcycle Achiever 2011 February </span>
+        </h2>
+        <a href="#" class="download_btn manualDownloadBtn" target="_blank" download="">Download Now</a>
+        <img src="images/dummybike.jpg">
+      </div>
+      <!-- data end  -->
+    </div> 
+  </div>
+
   <script src="js/select-box-multi-level.js"></script>
   <script>
     $(document).ready(function () {
       setupSelectBox({
         holder: ".selectBoxHolder",
-        resultOnLastSelection: false,
+        resultOnLastSelection: true,
         default: {
           category: "Motorcycle",
           model: "Achiever",
