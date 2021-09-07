@@ -96,6 +96,9 @@ function setupSelectBox(propsParent) {
                   for (var i = (index + 1); i < allSelectBox.length; i++) {
                      var tempSelect = $(allSelectBox[i]);
                      tempSelect.removeClass("show");
+                     tempSelect.find("option").each(function (index) {
+                        index !== 0 ? $(this).remove() : "";
+                     })
                      tempSelect.data().clearFilterData();
                   }
                   if (resultOnLastSelection == false) {
